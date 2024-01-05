@@ -1,0 +1,1 @@
+/home/guilh/Documents/dotfiles/.scripts/symlink-install.sh

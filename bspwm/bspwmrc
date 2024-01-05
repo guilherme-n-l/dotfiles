@@ -1,0 +1,30 @@
+#! /bin/sh
+export EDITOR=nvim
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+bspc monitor -d    
+
+if [[ $(xrandr -q | grep 'HDMI-1 connected') ]]; then
+	xrandr --output eDP-1 --primary --mode 1920x1080 --output HDMI-1 --mode 3840x2160 --right-of eDP-1 &
+	bspc monitor HDMI-1 -d 󰍹
+else
+	xrandr --output eDP-1 --primary --mode 1920x1080 --scale 1x1 &
+	bspc monitor HDMI-1 -r
+fi
+
+bspc config border_width         2
+bspc config window_gap          15
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a spotify desktop='^4' follow=on
+bspc rule -a mpv state=floating
+
+picom &
+nitrogen --restore &
+polybar &
+nm-applet --indicator &

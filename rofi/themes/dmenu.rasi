@@ -1,0 +1,47 @@
+/**
+ * ROFI Revamped Color theme
+ * User: guilh
+ */
+
+* {
+    background-color:      #181616;
+    text-color:            #dcd7ba;
+    font:            "FiraCode Nerd Code 13";
+}
+window {
+    anchor:     north;
+    location:   north;
+    width:      99.5%;
+    margin:     5px 0 0 0;
+    border-radius: 0.5%;
+    padding:    4px;
+    children:   [ horibox ];
+}
+horibox {
+    orientation: horizontal;
+    children:   [ prompt, entry, listview ];
+}
+listview {
+    layout:     horizontal;
+    spacing:    5px;
+    lines:      100;
+}
+entry {
+    expand:     false;
+    width:      10em;
+    margin:     2px 0 0 0;
+}
+element {
+    padding: 0px 5px 5px 5px;
+    text-align:   center;
+}
+element selected {
+    border-color: #727169;
+    border:       2;
+    text-color:   #e6c384; 
+}
+
+element-text, element-icon {
+  background-color: inherit;
+  text-color: inherit;
+}

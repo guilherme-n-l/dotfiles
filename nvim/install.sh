@@ -1,0 +1,1 @@
+../.scripts/symlink-install.sh

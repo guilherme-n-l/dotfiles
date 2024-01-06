@@ -1,1 +1,1 @@
-/home/guilh/Documents/dotfiles/.scripts/symlink-install.sh
+../.scripts/symlink-install.sh

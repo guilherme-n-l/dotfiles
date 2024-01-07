@@ -8,5 +8,5 @@ if [ -e "$DEFAULT_LIST" ]; then
     ln -fs "$DEFAULT_LIST" "$MIMEAPPS_LIST"
 else
     echo "Error: default.list not found in the script directory."
-    exit 1
+    return 1
 fi

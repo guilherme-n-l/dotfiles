@@ -1,22 +1,26 @@
 #!/bin/zsh
 
-folders=($(ls -d -- [^.]*/))
+FOLDERS=($(ls -d -- [^.]*/))
 
-for folder in $folders; do
-    app_name=$(basename $folder)
+for folder in $FOLDERS; do
+    APP_NAME=$(basename $folder)
 
-    echo -n "Do you want to install $app_name? (y/N) "
+    echo -n "Do you want to install $APP_NAME? (y/N) "
     read -r response
 
     if [[ "$response" == 'y' || "$response" == 'Y' ]]; then
-        install_script="$folder/install.sh"
+        INSTALL_SCRIPT="$folder/install.sh"
 
-        if [[ -f $install_script ]]; then
-            echo "Installing $app_name..."
-            (cd $folder && ./install.sh)
-            echo "$app_name in place"
+        if [[ -f $INSTALL_SCRIPT ]]; then
+            echo "Installing $APP_NAME..."
+            if (cd $folder && ./install.sh); then
+                    echo "$APP_NAME in place"
+
+            else
+                    echo "Couldn't install $APP_NAME"
+            fi
         else
-            echo "Error: install.sh not found in $app_name folder."
+            echo "Error: install.sh not found in $APP_NAME folder."
         fi
     fi
 done

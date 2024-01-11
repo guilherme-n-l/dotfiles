@@ -102,3 +102,4 @@ Below are some useful software I use in my daily driver
 |keepassxc|storing passwords|
 |zathura|reading documents|
 |trash-cli|deleting files| 
+|nitrogen|desktop wallpaper|

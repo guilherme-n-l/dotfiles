@@ -15,7 +15,11 @@ sudo pacman -S alacritty
 ## bspwm & sxhkd
 
 ```sh
-sudo pacman -S bspwm sxhkd
+sudo pacman -S bspwm sxhkd &
+git clone https://github.com/CameronNemo/brillo.git &
+cd brillo
+make &
+sudo make install.setgid
 ```
 
 ## lf

@@ -103,3 +103,4 @@ Below are some useful software I use in my daily driver
 |zathura|reading documents|
 |trash-cli|deleting files| 
 |nitrogen|desktop wallpaper|
+|lazygit|version control|

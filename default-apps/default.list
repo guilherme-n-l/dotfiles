@@ -1,4 +1,4 @@
 [Default Applications]
-text/plain=nvim.desktop
+text=nvim.desktop
 video=mpv.desktop
 application/pdf=org.pwmt.zathura.desktop

@@ -97,3 +97,4 @@ Below are some useful software I use in my daily driver
 |firefox|web|
 |keepassxc|storing passwords|
 |zathura|reading documents|
+|trash-cli|deleting files| 

@@ -1,36 +1,22 @@
--- Default options:
 require('kanagawa').setup({
-    compile = false,             -- enable compiling the colorscheme
-    undercurl = true,            -- enable undercurls
+    compile = false,           
+    undercurl = true,           
     commentStyle = { italic = true },
-    functionStyle = {},
-    keywordStyle = { italic = true},
+    keywordStyle = { italic = true },
     statementStyle = { bold = true },
-    typeStyle = {},
-    transparent = false,         -- do not set background color
-    dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
-    terminalColors = true,       -- define vim.g.terminal_color_{0,17}
-    colors = {                   -- add/modify theme and palette colors
-        palette = {},
-        theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
-    },
-    overrides = function(colors) -- add/modify highlights
-        return {}
+    transparent = true,        
+    dimInactive = false,        
+    terminalColors = true,       
+    overrides = function(colors) 
+        return {
+                LineNr = { bg = "none" },
+                SignColumn = { bg = "none" },
+                GitSignsAdd = { bg = "none" },
+                GitSignsChange = { bg = "none" },
+                GitSignsDelete = { bg = "none" },
+        }
     end,
-    theme = "dragon",              -- Load "wave" theme when 'background' option is not set
-    background = {               -- map the value of 'background' option to a theme
-        dark = "dragon",           -- try "dragon" !
-        light = "lotus"
-    },
+    theme = "dragon",              
 })
 
-function fixTransparency(color)
-	color = color or "kanagawa"
-	vim.cmd.colorscheme(color)
-	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-	vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
-	vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
-end
-
-fixTransparency()
+vim.cmd("colorscheme kanagawa")

@@ -53,6 +53,11 @@ require("lazy").setup({
                         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
                         ft = { "markdown" },
                         build = function() vim.fn["mkdp#util#install"]() end,
+                },
+                "lambdalisue/suda.vim",
+                {
+                        "folke/trouble.nvim",
+                         dependencies = { "nvim-tree/nvim-web-devicons" }
                 }
 }
 

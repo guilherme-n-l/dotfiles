@@ -9,16 +9,16 @@ Welcome to my archlinux configuration. To prevent issues, I added all needed dep
 Props to [@kchibisov](https://github.com/kchibisov) for the theme
 
 ```sh
-sudo pacman -S alacritty
+sudo pacman -S alacritty ttf-firacode-nerd 
 ```
 
 ## bspwm & sxhkd
 
 ```sh
-sudo pacman -S bspwm sxhkd &
-git clone https://github.com/CameronNemo/brillo.git &
+sudo pacman -S bspwm sxhkd go-md2mani 
+git clone https://github.com/CameronNemo/brillo.git 
 cd brillo
-make &
+make 
 sudo make install.setgid
 ```
 
@@ -35,8 +35,8 @@ yay -S wkhtmltopdf
 Props to [@thimc](https://github.com/thimc) and the rest of the team for enabling previews in lf (So nice!)
 
 ```sh
-git clone https://github.com/thimc/lfimg.git &
-cd lfimg &
+git clone https://github.com/thimc/lfimg.git 
+cd lfimg 
 make install
 ```
 
@@ -44,7 +44,7 @@ make install
 
 ```sh
 sudo pacman -S mpv
-git clone https://github.com/CogentRedTester/mpv-file-browser.git ~/.config/mpv/scripts/file-browser &
+git clone https://github.com/CogentRedTester/mpv-file-browser.git ~/.config/mpv/scripts/file-browser 
 ```
 
 ## nvim 
@@ -62,7 +62,7 @@ sudo pacman -S picom
 ## polybar 
 
 ```sh
-sudo pacman -S polybar tff-firacode-nerd 
+sudo pacman -S polybar
 ```
 
 ## rofi

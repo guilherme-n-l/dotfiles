@@ -9,79 +9,83 @@ Welcome to my archlinux configuration. To prevent issues, I added all needed dep
 Props to [@kchibisov](https://github.com/kchibisov) for the theme
 
 ```sh
-sudo pacman -S alacritty ttf-firacode-nerd 
+alacritty
+ttf-firacode-nerd 
+tmux
 ```
 
 ## bspwm & sxhkd
 
 ```sh
-sudo pacman -S bspwm sxhkd go-md2mani 
-git clone https://github.com/CameronNemo/brillo.git 
-cd brillo
-make 
-sudo make install.setgid
+bspwm
+sxhkd
+# picom
+# nitrogen
+# polybar
+# network-manager-applet
 ```
 
 ## lf
 
 ```sh
-sudo pacman -S ffmpegthumbnailer imagemagick poppler gnome-epub-thumbnailer bat unzip docx2txt gnumeric ueberzug lf
-```
-
-```sh
-yay -S wkhtmltopdf
+lfimg (https://github.com/thimc/lfimg)
+ueberzugpp
+ffmpegthumbnailer
+ImageMagick
+poppler
+wkhtmltopdf
+# bat (color highlight for text files)
+# chafa (for image preview over SSH or inside Wayland session)
+# unzip (for .zip and .jar files)
+# 7z (for .7z files)
+# unrar (for .rar files)
+# catdoc (for .doc files)
+# docx2txt (for .docx files)
+# odt2txt (for .odt and *.ods files)
+# gnumeric (for .xls and .xlsx files)
+# comix (for .cbz and .cbr files)
 ```
 
 Props to [@thimc](https://github.com/thimc) and the rest of the team for enabling previews in lf (So nice!)
 
-```sh
-git clone https://github.com/thimc/lfimg.git 
-cd lfimg 
-make install
-```
-
 ## mpv
 
 ```sh
-sudo pacman -S mpv
-git clone https://github.com/CogentRedTester/mpv-file-browser.git ~/.config/mpv/scripts/file-browser 
+mpv
+mpv-file-browser (https://github.com/CogentRedTester/mpv-file-browser)
+mpv-copy-paste (https://github.com/zenyd/mpv-scripts)
 ```
 
 ## nvim 
 
 ```sh
-sudo pacman -S neovim xclip
+neovim
+xclip
 ```
 
 ## picom 
 
 ```sh
-sudo pacman -S picom 
+picom
 ```
 
 ## polybar 
 
 ```sh
-sudo pacman -S polybar
+polybar
 ```
 
 ## rofi
 
 ```sh
-sudo pacman -S rofi
-```
-
-### Optional
-
-```sh
-sudo pacman -S network-manager-applet
+rofi
 ```
 
 ## tmux
 
 ```sh
-sudo pacman -S tmux
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+tmux
+tpm (https://github.com/tmux-plugins/tpm)
 ```
 
 ## Trackpad
@@ -89,7 +93,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 > Use this to enable natural scrolling and tapping 
 
 ```sh
-sudo pacman -S xf86-input-synaptics  
+xf86-input-synaptics  
 ```
 
 # Extra
@@ -104,3 +108,6 @@ Below are some useful software I use in my daily driver
 |trash-cli|deleting files| 
 |nitrogen|desktop wallpaper|
 |lazygit|version control|
+|calibre|books|
+|nomacs|images|
+|timeshift|backups|

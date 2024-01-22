@@ -19,9 +19,6 @@ require("lazy").setup({
         },
         {
                 "rebelot/kanagawa.nvim",
-                config = function()
-                        vim.cmd("colorscheme kanagawa")
-                end
         },
         "lewis6991/gitsigns.nvim",
         {

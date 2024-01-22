@@ -21,6 +21,10 @@ bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
+bspc config focused_border_color "#e6c384"
+bspc config normal_border_color "#727169"
+bspc config border_width 2 
+
 bspc rule -a spotify desktop='^4' follow=on
 bspc rule -a mpv state=floating
 

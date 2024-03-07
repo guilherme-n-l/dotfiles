@@ -140,6 +140,10 @@ XF86MonBrightness{Up,Down}
 super + shift + {s,a}
         flameshot {gui,full} -p ~/Pictures/screenshots
 
+# Lock trackpad 
+F9
+        synclient TouchpadOff=$(synclient -l | grep -c 'TouchpadOff.*=.*0') 
+
 # Lock screen
 super + q 
         betterlockscreen --quiet --lock blur

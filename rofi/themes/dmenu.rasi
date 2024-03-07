@@ -4,22 +4,22 @@
  */
 
 * {
-        background-color:   #2a2a37;
+        background-color:   rgba ( 42, 42, 55, 80% );
         text-color:         #dcd7ba;
-        font:               "FiraCode Nerd Code 12";
+        font:               "FiraCode Nerd Font Mono 12";
 }
 window {
         anchor:         north;
         location:       north;
-        width:          99.5%;
-        height:         40px;
-        margin:         6px 0 0 0;
-                        border-radius:  0.5%;
-        padding:        4px;
+        width:          98%;
+        height:         45px;
+        margin:         14px 0 0 0;
+        padding:        0.1ch;
         children:       [ horibox ];
 }
 horibox {
         orientation: horizontal;
+        margin:      0;
         children:   [ prompt, entry, listview ];
 }
 listview {
@@ -30,10 +30,10 @@ listview {
 entry {
         expand:     false;
         width:      15em;
-        margin:     5 0 0 0;
+        margin:     0;
 }
 element {
-        margin:     0.5ch 0 0 0;
+        margin:    0; 
 }
 element selected {
         text-color:   #e6c384; 

@@ -1,6 +1,21 @@
+# Settings
+set shell zsh
 set ratios 1:2:3
 set previewer ~/.config/lf/preview
 set cleaner ~/.config/lf/cleaner
 set icons true
 
+# Commands
+cmd trash %{{
+    printf "Trash '%s'? [y/n] " "$f"
+    read -r ans
+    if [ "$ans" = "y" ]; then
+        trash "$f"
+        echo
+    else
+        echo "aborting"
+    fi
+}}
+
+# Bindings
 map . set hidden!

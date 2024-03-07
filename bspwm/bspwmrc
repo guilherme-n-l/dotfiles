@@ -26,9 +26,19 @@ bspc config normal_border_color "#727169"
 bspc config border_width 2 
 
 bspc rule -a spotify desktop='^4' follow=on
-bspc rule -a mpv state=floating
+bspc rule -a mpv state=floating sticky=on
+bspc rule -a xdman-Main state=floating
+bspc rule -a ':yad' state=floating
+bspc rule -a '*:*:Picture-in-Picture' state=floating sticky=on
+bspc rule -a ":KeePassXC" state=floating
 
-picom &
-nitrogen --restore &
-polybar &
-nm-applet --indicator &
+# Run on startup only
+[ "$1" = 0 ] && {
+        nitrogen --restore &
+        nm-applet --indicator &
+        udiskie --tray &
+        picom &
+        polybar &
+        keepassxc &
+        eval "$(ssh-agent -s)" &
+}

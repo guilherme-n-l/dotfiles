@@ -6,12 +6,13 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc monitor -d    
 
+
 if [[ $(xrandr -q | grep 'HDMI-1 connected') ]]; then
-	xrandr --output eDP-1 --primary --mode 1920x1080 --output HDMI-1 --mode 3840x2160 --right-of eDP-1 &
-	bspc monitor HDMI-1 -d 󰍹
-else
-	xrandr --output eDP-1 --primary --mode 1920x1080 --scale 1x1 &
-	bspc monitor HDMI-1 -r
+    xrandr --output eDP-1 --off 
+    xrandr --output HDMI-1 --primary --mode 3840x2160 --scale 1x1
+    xrandr --output HDMI-1 --auto --pos 0x0
+    xrandr --output eDP-1 --auto --pos 0x0 --scale 2x2
+    bspc monitor HDMI-1 --remove 
 fi
 
 bspc config border_width         2

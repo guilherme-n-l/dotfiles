@@ -1,8 +1,11 @@
+local builtin = require('telescope.builtin')
 g = vim.g
 set = vim.keymap.set
 
 g.mapleader = " "
 
+set('n', '<leader>pf', builtin.find_files, {})
+set('n', '<leader>pg', builtin.live_grep, {})
 set("n", "<leader>pv", vim.cmd.Ex)
 
 set("v", "J", ":m '>+1<CR>gv=gv")

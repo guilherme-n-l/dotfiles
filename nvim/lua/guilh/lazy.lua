@@ -63,7 +63,11 @@ require("lazy").setup({
         "hrsh7th/nvim-cmp",
         {
             'nvim-telescope/telescope.nvim', tag = '0.1.6',
-            dependencies = { 'nvim-lua/plenary.nvim' }
+            dependencies = { 'nvim-lua/plenary.nvim', 'sharkdp/fd', 'BurntSushi/ripgrep'  },
+        },
+        {
+            'numToStr/Comment.nvim',
+            lazy = false
         },
         "mbbill/undotree",
         {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},

@@ -16,6 +16,18 @@ cmd trash %{{
         echo "aborting"
     fi
 }}
+cmd open ${{
+    xdg-open "$f"
+}}
+cmd mkdir %{{
+	printf " Directory Name: "
+	read ans
+	mkdir $ans
+    printf "%s created" $ans
+}}
 
 # Bindings
 map . set hidden!
+map @ mkdir
+map D delete
+map <enter> open

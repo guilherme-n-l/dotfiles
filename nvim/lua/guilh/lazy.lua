@@ -42,10 +42,10 @@ require("lazy").setup({
             "TmuxNavigatePrevious",
         },
         keys = {
-            { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-            { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-            { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-            { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+            { "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>" },
+            { "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>" },
+            { "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>" },
+            { "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
             { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
         },
         {
@@ -62,19 +62,26 @@ require("lazy").setup({
         "/mateusbraga/vim-spell-pt-br",
         "hrsh7th/nvim-cmp",
         {
-            'nvim-telescope/telescope.nvim', tag = '0.1.6',
-            dependencies = { 'nvim-lua/plenary.nvim', 'sharkdp/fd', 'BurntSushi/ripgrep'  },
+            'nvim-telescope/telescope.nvim',
+            tag = '0.1.6',
+            dependencies = { 'nvim-lua/plenary.nvim' },
         },
         {
             'numToStr/Comment.nvim',
             lazy = false
         },
         "mbbill/undotree",
-        {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
-        {'neovim/nvim-lspconfig'},
-        {'hrsh7th/cmp-nvim-lsp'},
-        {'hrsh7th/nvim-cmp'},
-        {'L3MON4D3/LuaSnip'},
+        { 'VonHeikemen/lsp-zero.nvim', branch = 'v3.x' },
+        { 'neovim/nvim-lspconfig' },
+        { 'hrsh7th/cmp-nvim-lsp' },
+        { 'hrsh7th/nvim-cmp' },
+        { 'L3MON4D3/LuaSnip' },
+        {
+            "mfussenegger/nvim-lint",
+            "rshkarin/mason-nvim-lint",
+            'stevearc/conform.nvim',
+            "zapling/mason-conform.nvim",
+        },
     }
 
 })

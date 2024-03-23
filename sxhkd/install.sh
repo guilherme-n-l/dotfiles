@@ -1,11 +1,5 @@
-#! /bin/zsh
-
+#!/bin/zsh
 SCRIPT_DIR="$( cd "$( dirname "${(%):-%x}" )" && pwd )"
-
-if sudo pacman -S --noconfirm sxhkd; then
-    if ! ln -fs "$SCRIPT_DIR" ~/.config; then
-            return 1
-    else
-        chmod +x ~/.config/bspwm/bspwmrc
-    fi
-fi
+sudo pacman -S --noconfirm sxhkd
+ln -fs "$SCRIPT_DIR" ~/.config
+chmod +x ~/.config/bspwm/bspwmrc

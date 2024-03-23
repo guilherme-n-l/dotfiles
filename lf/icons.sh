@@ -1,5 +1,4 @@
 #! /bin/zsh
-
 export LF_ICONS="\
 di=:\
 fi=:\

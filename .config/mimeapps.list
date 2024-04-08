@@ -1,0 +1,24 @@
+[Default Applications]
+text/plain=nvim.desktop
+inode/x-empty=nvim.desktop
+text/x-shellscript=nvim.desktop
+video/dv=mpv.desktop;
+video/mpeg=mpv.desktop;
+video/x-mpeg=mpv.desktop;
+video/msvideo=mpv.desktop;
+video/quicktime=mpv.desktop;
+video/x-anim=mpv.desktop;
+video/x-avi=mpv.desktop;
+video/x-ms-asf=mpv.desktop;
+video/x-ms-wmv=mpv.desktop;
+video/x-msvideo=mpv.desktop;
+video/x-nsv=mpv.desktop;
+video/x-flc=mpv.desktop;
+video/x-fli=mpv.desktop;
+image/jpg=nsxiv.desktop;
+image/png=nsxiv.desktop;
+application/pdf=org.pwmt.zathura.desktop
+application/epub+zip=org.pwmt.zathura.desktop
+
+[Added Associations]
+application/epub+zip=org.pwmt.zathura.desktop;

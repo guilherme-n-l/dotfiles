@@ -24,6 +24,8 @@ Props to [@kchibisov](https://github.com/kchibisov) for the theme
 - [brillo (AUR)](https://aur.archlinux.org/packages/brillo)
 - [flameshot (AUR)](https://archlinux.org/packages/extra/x86_64/flameshot/)
 - [betterlockscreen (AUR)](https://aur.archlinux.org/packages/betterlockscreen)
+- [fzf (AUR)](https://archlinux.org/packages/extra/x86_64/fzf/)
+- [fd (AUR)](https://archlinux.org/packages/extra/x86_64/fd/)
 
 ## lf
 
@@ -65,6 +67,8 @@ Props to [@kchibisov](https://github.com/kchibisov) for the theme
 ## polybar
 
 - [polybar (AUR)](https://archlinux.org/packages/extra/x86_64/polybar/)
+- [yad (AUR) (Optional)](https://archlinux.org/packages/extra/x86_64/yad/)
+- [xdotool (AUR) (Optional)](https://archlinux.org/packages/extra/x86_64/xdotool/)
 
 ## rofi
 
@@ -94,10 +98,16 @@ I use this to enable tapping and natural scrolling on my trackpad.
 
 1. To theme zathura, you will need to append [gtk.css](/zathura/gtk.css) to `~/.config/gtk-3.0/gtk.css`
 2. To theme nsxiv, you will need to append [.Xresources](/nsxiv/.Xresources) to `~/.Xresources`
+3. To install audio properly use the following packages:
+- [sof-firmware (AUR)](https://archlinux.org/packages/extra/x86_64/sof-firmware/)
+- [pipewire (AUR)](https://archlinux.org/packages/extra/x86_64/pipewire/)
+- [wireplumber (AUR)](https://archlinux.org/packages/extra/x86_64/wireplumber/)
+- [pipewire-alsa (AUR)](https://archlinux.org/packages/extra/x86_64/pipewire-alsa/)
+- [pipewire-pulse (AUR)](https://archlinux.org/packages/extra/x86_64/pipewire-pulse/)
 
 # Extra
 
-Below are some useful software I use in my daily driver
+Below are some useful software I use in my daily driver:
 
 |Software|For|
 |-|-|

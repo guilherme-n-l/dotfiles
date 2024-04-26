@@ -3,6 +3,8 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR='/bin/nvim'
 export SYSTEMD_EDITOR='/bin/nvim'
+export TEXINPUTS="/opt/tex/cur/texmf-dist/tex/latex/latexconfig/"
+export PATH=$PATH:$HOME/.go/bin
 
 # Theme
 ZSH_THEME='crunch'
@@ -23,7 +25,7 @@ alias lf='lfrun'
 alias sd='shutdown now'
 alias rb='shutdown now --reboot'
 alias jrun='javac Classy.java && java Classy'
-alias fcd='cd $(fd --type d | fzf)'
+alias fcd='cd "$(fd --hidden --type d | fzf)"'
 
 # Keybinds
 bindkey '^[[1;3C' forward-word

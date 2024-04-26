@@ -14,15 +14,20 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    "nvim-treesitter/nvim-treesitter",
+    --------- GUI --------- 
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { 'nvim-tree/nvim-web-devicons' },
     },
-    {
-        "rebelot/kanagawa.nvim",
-    },
+    "rebelot/kanagawa.nvim",
     "lewis6991/gitsigns.nvim",
+    --------- LSP --------- 
+    "nvim-treesitter/nvim-treesitter",
+    {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v3.x'
+    },
+    "neovim/nvim-lspconfig",
     {
         "williamboman/mason.nvim",
         dependencies = {
@@ -31,7 +36,14 @@ require("lazy").setup({
         },
 
     },
-    "neovim/nvim-lspconfig",
+    {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" }
+    },
+    "/mateusbraga/vim-spell-pt-br",
+    "hrsh7th/nvim-cmp",
+    'hrsh7th/cmp-nvim-lsp',
+    --------- Navegation --------- 
     {
         "christoomey/vim-tmux-navigator",
         cmd = {
@@ -48,43 +60,28 @@ require("lazy").setup({
             { "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
             { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
         },
-        {
-            "iamcco/markdown-preview.nvim",
-            cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-            ft = { "markdown" },
-            build = function() vim.fn["mkdp#util#install"]() end,
-        },
-        "lambdalisue/suda.vim",
-        {
-            "folke/trouble.nvim",
-            dependencies = { "nvim-tree/nvim-web-devicons" }
-        },
-        "/mateusbraga/vim-spell-pt-br",
-        "hrsh7th/nvim-cmp",
-        {
-            'nvim-telescope/telescope.nvim',
-            tag = '0.1.6',
-            dependencies = { 'nvim-lua/plenary.nvim' },
-        },
-        {
-            'numToStr/Comment.nvim',
-            lazy = false
-        },
-        "mbbill/undotree",
-        { 'VonHeikemen/lsp-zero.nvim', branch = 'v3.x' },
-        { 'neovim/nvim-lspconfig' },
-        { 'hrsh7th/cmp-nvim-lsp' },
-        { 'hrsh7th/nvim-cmp' },
-        { 'L3MON4D3/LuaSnip' },
-        {
-            "mfussenegger/nvim-lint",
-            "rshkarin/mason-nvim-lint",
-            'stevearc/conform.nvim',
-            "zapling/mason-conform.nvim",
-        },
-        "github/copilot.vim",
-        "theprimeagen/harpoon",
-        "stevearc/aerial.nvim"
-    }
-
+    },
+    {
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.6',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+    },
+    "theprimeagen/harpoon",
+    --------- Language Specific --------- 
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        ft = { "markdown" },
+        build = function() vim.fn["mkdp#util#install"]() end,
+    },
+    --------- Utilities --------- 
+    "lambdalisue/suda.vim",
+    {
+        'numToStr/Comment.nvim',
+        lazy = false
+    },
+    "mbbill/undotree",
+    'L3MON4D3/LuaSnip',
+    "github/copilot.vim",
+    "stevearc/aerial.nvim"
 })

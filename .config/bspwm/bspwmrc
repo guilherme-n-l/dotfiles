@@ -41,5 +41,5 @@ bspc rule -a ":KeePassXC" state=floating
         picom &
         polybar &
         keepassxc &
-        eval "$(ssh-agent -s)" &
+	xss-lock -- betterlockscreen -l &
 }

@@ -1,0 +1,11 @@
+# Default github
+Host github.com
+    HostName github.com
+    PreferredAuthentications publickey
+    # IdentityFile <PATH TO KEY>
+
+# Work github
+Host github-other-account
+    HostName github.com
+    PreferredAuthentications publickey
+    # IdentityFile <PATH TO KEY>

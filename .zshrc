@@ -1,9 +1,6 @@
 # Environment variables
 export _JAVA_AWT_WM_NONREPARENTING=1
 export ZSH="$HOME/.oh-my-zsh"
-export EDITOR='/bin/nvim'
-export SYSTEMD_EDITOR='/bin/nvim'
-export TEXINPUTS="/opt/tex/cur/texmf-dist/tex/latex/latexconfig/"
 export PATH=$PATH:$HOME/.go/bin
 
 # Theme
@@ -22,6 +19,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 # Aliases 
 alias lf='lfrun'
+alias lg='lazygit'
 alias sd='shutdown now'
 alias rb='shutdown now --reboot'
 alias jrun='javac Classy.java && java Classy'

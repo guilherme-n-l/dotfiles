@@ -1,3 +1,4 @@
+local vim = vim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 if not vim.loop.fs_stat(lazypath) then
@@ -83,5 +84,6 @@ require("lazy").setup({
     "mbbill/undotree",
     'L3MON4D3/LuaSnip',
     "github/copilot.vim",
-    "stevearc/aerial.nvim"
+    "stevearc/aerial.nvim",
+    "/tpope/vim-fugitive"
 })

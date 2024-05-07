@@ -4,6 +4,7 @@ local trouble = require('trouble')
 local harpoonui = require('harpoon.ui')
 local teleharpoon = require('telescope').load_extension('harpoon')
 local harpoon = require('harpoon.mark')
+local conform = require('conform')
 local virtual_text_state = false
 local g = vim.g
 local set = vim.keymap.set
@@ -37,6 +38,7 @@ set("n", "<leader>xf", function()  vim.diagnostic.open_float() end)
 set("n", "<leader>xl", function() trouble.toggle("loclist") end)
 set("n", "<leader>xv", function() trouble.toggle("document_diagnostics") end)
 set("n", "gR", function() trouble.toggle("lsp_references") end)
+set("n", "gF", function() conform.format() end)
 set('n', '<leader>xu', vim.cmd.UndotreeToggle)
 
 set('v', 'J', ":m '>+1<CR>gv=gv")

@@ -15,14 +15,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    --------- GUI --------- 
+    --------- GUI ---------
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { 'nvim-tree/nvim-web-devicons' },
     },
     "rebelot/kanagawa.nvim",
     "lewis6991/gitsigns.nvim",
-    --------- LSP --------- 
+    --------- LSP ---------
     "nvim-treesitter/nvim-treesitter",
     {
         'VonHeikemen/lsp-zero.nvim',
@@ -43,8 +43,12 @@ require("lazy").setup({
     },
     "/mateusbraga/vim-spell-pt-br",
     "hrsh7th/nvim-cmp",
-    'hrsh7th/cmp-nvim-lsp',
-    --------- Navegation --------- 
+    "stevearc/conform.nvim",
+    "zapling/mason-conform.nvim",
+    "rshkarin/mason-nvim-lint",
+    "mfussenegger/nvim-lint",
+    "hrsh7th/cmp-nvim-lsp",
+    --------- Navegation ---------
     {
         "christoomey/vim-tmux-navigator",
         cmd = {
@@ -63,27 +67,28 @@ require("lazy").setup({
         },
     },
     {
-        'nvim-telescope/telescope.nvim',
-        tag = '0.1.6',
-        dependencies = { 'nvim-lua/plenary.nvim' },
+        "nvim-telescope/telescope.nvim",
+        tag = "0.1.6",
+        dependencies = { "nvim-lua/plenary.nvim" },
     },
     "theprimeagen/harpoon",
-    --------- Language Specific --------- 
+    --------- Language Specific ---------
     {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
         ft = { "markdown" },
         build = function() vim.fn["mkdp#util#install"]() end,
     },
-    --------- Utilities --------- 
+    --------- Utilities ---------
     "lambdalisue/suda.vim",
     {
-        'numToStr/Comment.nvim',
+        "numToStr/Comment.nvim",
         lazy = false
     },
     "mbbill/undotree",
-    'L3MON4D3/LuaSnip',
+    "L3MON4D3/LuaSnip",
     "github/copilot.vim",
     "stevearc/aerial.nvim",
-    "/tpope/vim-fugitive"
+    "tpope/vim-fugitive",
+    "theprimeagen/git-worktree.nvim"
 })

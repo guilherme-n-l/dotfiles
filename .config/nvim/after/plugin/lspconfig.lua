@@ -1,12 +1,12 @@
 local vim = vim
 local lsp_zero = require('lsp-zero')
+local cmp = require('cmp')
+local cmp_action = require('lsp-zero').cmp_action()
 
 ------------------------------
 --      cmp
 ------------------------------
 
-local cmp = require('cmp')
-local cmp_action = require('lsp-zero').cmp_action()
 cmp.setup({
     window = {
         completion = cmp.config.window.bordered(),

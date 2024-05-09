@@ -2,6 +2,8 @@
 export _JAVA_AWT_WM_NONREPARENTING=1
 export ZSH="$HOME/.oh-my-zsh"
 export PATH=$PATH:$HOME/.go/bin
+export PATH=$PATH:/home/guilh/Documents/inteli/m8/g3/12-format-json/src/ide/backend/tmp
+
 
 # Theme
 ZSH_THEME='crunch'

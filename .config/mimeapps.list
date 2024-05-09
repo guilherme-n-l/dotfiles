@@ -17,6 +17,7 @@ video/x-flc=mpv.desktop;
 video/x-fli=mpv.desktop;
 image/jpg=nsxiv.desktop;
 image/png=nsxiv.desktop;
+image/vnd.djvu=org.pwmt.zathura.desktop
 application/pdf=org.pwmt.zathura.desktop
 application/epub+zip=org.pwmt.zathura.desktop
 

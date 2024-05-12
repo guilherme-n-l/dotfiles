@@ -2,8 +2,6 @@
 export _JAVA_AWT_WM_NONREPARENTING=1
 export ZSH="$HOME/.oh-my-zsh"
 export PATH=$PATH:$HOME/.go/bin
-export PATH=$PATH:/home/guilh/Documents/inteli/m8/g3/12-format-json/src/ide/backend/tmp
-
 
 # Theme
 ZSH_THEME='crunch'
@@ -21,11 +19,17 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 # Aliases 
 alias lf='lfrun'
-alias lg='lazygit'
 alias sd='shutdown now'
 alias rb='shutdown now --reboot'
-alias jrun='javac Classy.java && java Classy'
+alias fzfd='fd --hidden --type d | fzf'
 alias fcd='cd "$(fd --hidden --type d | fzf)"'
+alias lg='lazygit'
+alias gs='git status'
+alias gf='git fetch origin'
+alias gp='git pull'
+alias gP='git push'
+alias gwa='git worktree add'
+alias gwr='git worktree remove'
 
 # Keybinds
 bindkey '^[[1;3C' forward-word

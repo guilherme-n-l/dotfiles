@@ -30,6 +30,7 @@ g.mapleader = ' '
 --      Navegation
 ------------------------------
 
+set('n', '<leader>ww', vim.cmd.bd)
 set('n', '<leader>pf', builtin.find_files, {})
 set('n', '<leader>pg', builtin.live_grep, {})
 set('n', '<leader>pv', vim.cmd.Ex)

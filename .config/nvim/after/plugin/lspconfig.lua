@@ -1,18 +1,34 @@
 local vim = vim
 local lsp_zero = require("lsp-zero")
+
 local cmp = require("cmp")
 local cmp_action = require("lsp-zero").cmp_action()
 local conform = require("conform")
 local mason_conform = require("mason-conform")
 
 ------------------------------
---      cmp
+--          Cmp             --
 ------------------------------
 
 cmp.setup({
 	window = {
 		completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered(),
+		documentation = {
+			bordered = true,
+			max_width = 80,
+			max_height = 10,
+		},
+		view = {
+			entries = { name = "custom", selection_order = "near_cursor" },
+			docs = {
+				auto_open = false,
+			},
+		},
+		sources = cmp.config.sources({
+			{ name = "nvim_lsp" },
+		}, {
+			{ name = "buffer" },
+		}),
 	},
 	mapping = cmp.mapping.preset.insert({
 		["<C-f>"] = cmp_action.luasnip_jump_forward(),
@@ -21,14 +37,18 @@ cmp.setup({
 		["<C-d>"] = cmp.mapping.scroll_docs(4),
 		["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
 		["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-		["<C-y>"] = cmp.mapping.confirm(),
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
+		-- ['<C-c>'] = cmp.mapping.complete(),
+		-- ["<C-y>"] = cmp.mapping.confirm(),
 		["<C-l>"] = cmp.mapping.open_docs(),
 		["<C-h>"] = cmp.mapping.close_docs(),
+		["<C-k>"] = cmp.mapping.scroll_docs(-4),
+		["<C-j>"] = cmp.mapping.scroll_docs(4),
 	}),
 })
 
 ------------------------------
---      lsp_zero
+--        Lsp_zero          --
 ------------------------------
 
 lsp_zero.preset("recommended")
@@ -58,7 +78,7 @@ lsp_zero.set_preferences({
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, guibg = "none" })
-    vim.cmd(string.format("highlight %s guibg=none", hl))
+	vim.cmd(string.format("highlight %s guibg=none", hl))
 end
 
 lsp_zero.on_attach(function(_, bufnr)
@@ -82,6 +102,10 @@ end)
 
 lsp_zero.setup()
 
+------------------------------
+--          Mason           --
+------------------------------
+
 require("mason").setup({})
 require("mason-lspconfig").setup({
 	ensure_installed = {
@@ -98,13 +122,14 @@ require("mason-lspconfig").setup({
 })
 
 ------------------------------
---      lsp_zero
+--         Conform          --
 ------------------------------
 
 conform.setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		python = { "black" },
+		cpp = { "clang-format" },
 	},
 })
 

@@ -25,11 +25,14 @@ alias fzfd='fd --hidden --type d | fzf'
 alias fcd='cd "$(fd --hidden --type d | fzf)"'
 alias lg='lazygit'
 alias gs='git status'
+alias gc='git commit'
+alias gco='git checkout'
 alias gf='git fetch origin'
 alias gp='git pull'
 alias gP='git push'
 alias gwa='git worktree add'
 alias gwr='git worktree remove'
+alias gwl='git worktree list'
 
 # Keybinds
 bindkey '^[[1;3C' forward-word

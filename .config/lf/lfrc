@@ -24,8 +24,9 @@ cmd mkdir %{{
     printf "%s created" $ans
 }}
 
+
 # Bindings
 map . set hidden!
 map @ mkdir
 map D delete
-map <enter> open
+map <enter> $xdg-open "$f"

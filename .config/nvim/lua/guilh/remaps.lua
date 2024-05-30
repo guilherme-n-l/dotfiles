@@ -1,72 +1,96 @@
 local vim = vim
-local builtin = require('telescope.builtin')
-local trouble = require('trouble')
-local harpoonui = require('harpoon.ui')
-local teleharpoon = require('telescope').load_extension('harpoon')
-local harpoon = require('harpoon.mark')
-local conform = require('conform')
-local virtual_text_state = false
+require("telescope").load_extension("git_worktree")
+
+local builtin = require("telescope.builtin")
+local trouble = require("trouble")
+local harpoonui = require("harpoon.ui")
+local harpoon = require("harpoon.mark")
+local teleworktree = require("telescope").extensions.git_worktree
+local conform = require("conform")
+local utils = require("guilh.utils")
 local g = vim.g
 local set = vim.keymap.set
 
-local function toggle_virtual_text()
-    virtual_text_state = not virtual_text_state
-    if virtual_text_state then
-        vim.diagnostic.config({
-            virtual_text = true,
-        })
-    else
-        vim.diagnostic.config({
-            virtual_text = false,
-        })
-    end
-end
-
-
-g.mapleader = ' '
-
+g.mapleader = " "
 
 ------------------------------
---      Navegation
+--        Navegation        --
 ------------------------------
 
-set('n', '<leader>ww', vim.cmd.bd)
-set('n', '<leader>pf', builtin.find_files, {})
-set('n', '<leader>pg', builtin.live_grep, {})
-set('n', '<leader>pv', vim.cmd.Ex)
-set('n', '<leader>hm', harpoon.add_file)
-set('n', '<leader>hn', harpoonui.nav_next)
-set('n', '<leader>hp', harpoonui.nav_prev)
-set('n', '<leader>hv', teleharpoon.marks)
-set('n', '<leader>he', harpoonui.toggle_quick_menu)
+set("n", "<leader>ww", vim.cmd.bd)
 
-------------------------------
---      LSP
-------------------------------
+-- Telescope
+set("n", "<leader>pf", function()
+	builtin.find_files({ hidden = true, no_ignore = true })
+end)
+set("n", "<leader>pg", builtin.live_grep, {})
+set("n", "<leader>pv", vim.cmd.Ex)
 
-set("n", "<leader>xx", function () toggle_virtual_text() end)
-set("n", "<leader>xf", function()  vim.diagnostic.open_float() end)
-set("n", "<leader>xl", function() trouble.toggle("loclist") end)
-set("n", "<leader>xv", function() trouble.toggle("document_diagnostics") end)
-set('n', '<leader>xu', vim.cmd.UndotreeToggle)
-set("n", "gr", function() trouble.toggle("lsp_references") end)
-set("n", "gF", function() conform.format() end)
-
-------------------------------
---      Utilities
-------------------------------
+-- Harpoon
+set("n", "<leader>hm", harpoon.add_file)
+set("n", "<leader>hn", harpoonui.nav_next)
+set("n", "<leader>hp", harpoonui.nav_prev)
+set("n", "<leader>hv", harpoonui.toggle_quick_menu)
+set("n", "<leader>1", function()
+	harpoonui.nav_file(1)
+end)
+set("n", "<leader>2", function()
+	harpoonui.nav_file(2)
+end)
+set("n", "<leader>3", function()
+	harpoonui.nav_file(3)
+end)
+set("n", "<leader>4", function()
+	harpoonui.nav_file(4)
+end)
 
 -- Move selected up and down
-set('v', 'J', ":m '>+1<CR>gv=gv")
-set('v', 'K', ":m '<-2<CR>gv=gv")
+set("v", "J", ":m '>+1<CR>gv=gv")
+set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Join to line above
-set('n', 'J', 'mzJ`z')
+set("n", "J", "mzJ`z")
 
-set('n', '<C-d>', '<C-d>zz')
-set('n', '<C-u>', '<C-u>zz')
+set("n", "<C-d>", "<C-d>zz")
+set("n", "<C-u>", "<C-u>zz")
 
 -- Search next blazzingly fast
-set('n', 'n', 'nzzzv')
-set('n', 'N', 'Nzzzv')
+set("n", "n", "nzzzv")
+set("n", "N", "Nzzzv")
 
+------------------------------
+--           LSP            --
+------------------------------
+
+-- Trouble
+set("n", "<leader>xx", function()
+	utils.toggle_virtual_text()
+end)
+set("n", "<leader>xf", function()
+	vim.diagnostic.open_float()
+end)
+set("n", "<leader>xp", vim.diagnostic.goto_prev)
+set("n", "<leader>xn", vim.diagnostic.goto_next)
+-- UndoTree
+set("n", "<leader>xu", vim.cmd.UndotreeToggle)
+set("n", "<leader>gr", function()
+	trouble.toggle("lsp_references")
+end)
+-- Aerial
+set("n", "<leader>gv", vim.cmd.AerialToggle)
+-- Conform
+set("n", "<leader>gf", function()
+	conform.format()
+end)
+
+------------------------------
+--          Git             --
+------------------------------
+
+-- Git_worktree
+set("n", "<leader>wv", function()
+	teleworktree.git_worktrees()
+end)
+set("n", "<leader>wa", function()
+	teleworktree.create_git_worktree()
+end)

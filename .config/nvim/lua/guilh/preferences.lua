@@ -1,4 +1,6 @@
-o = vim.opt
+local vim = vim
+
+local o = vim.opt
 
 o.nu = true
 o.rnu = true

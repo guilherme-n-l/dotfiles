@@ -1,4 +1,8 @@
-set selection-clipboard clipboard
+set selection-clipboard         clipboard
+
+set font                        "FiraCode Nerd Font 16"
+map h                           toggle_statusbar
+map p                           toggle_page_mode 
 
 set notification-error-bg       "rgba(31, 31, 40, 0.9)"
 set notification-error-fg       "#FF5D62"

@@ -2,6 +2,7 @@
 text/plain=nvim.desktop
 inode/x-empty=nvim.desktop
 text/x-shellscript=nvim.desktop
+application/javascript=nvim.desktop
 video/dv=mpv.desktop;
 video/mpeg=mpv.desktop;
 video/x-mpeg=mpv.desktop;

@@ -30,6 +30,7 @@ alias gco='git checkout'
 alias gf='git fetch origin'
 alias gp='git pull'
 alias gP='git push'
+alias gl="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''%C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 alias gwa='git worktree add'
 alias gwr='git worktree remove'
 alias gwl='git worktree list'

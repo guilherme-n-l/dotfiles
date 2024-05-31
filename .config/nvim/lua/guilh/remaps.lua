@@ -69,19 +69,19 @@ end)
 set("n", "<leader>xf", function()
 	vim.diagnostic.open_float()
 end)
-set("n", "<leader>xp", vim.diagnostic.goto_prev)
-set("n", "<leader>xn", vim.diagnostic.goto_next)
--- UndoTree
-set("n", "<leader>xu", vim.cmd.UndotreeToggle)
-set("n", "<leader>gr", function()
-	trouble.toggle("lsp_references")
+set("n", "gr", function()
+    trouble.toggle("lsp_references")
 end)
 -- Aerial
 set("n", "<leader>gv", vim.cmd.AerialToggle)
 -- Conform
 set("n", "<leader>gf", function()
-	conform.format()
+    conform.format()
 end)
+set("n", "<leader>xp", vim.diagnostic.goto_prev)
+set("n", "<leader>xn", vim.diagnostic.goto_next)
+-- UndoTree
+set("n", "<leader>xu", vim.cmd.UndotreeToggle)
 
 ------------------------------
 --          Git             --

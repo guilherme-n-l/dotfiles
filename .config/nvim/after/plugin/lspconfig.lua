@@ -5,6 +5,22 @@ local cmp = require("cmp")
 local cmp_action = require("lsp-zero").cmp_action()
 local conform = require("conform")
 local mason_conform = require("mason-conform")
+local cmp_icons = {
+	Variable = "",
+    Keyword = "",
+    Text = "",
+	Property = "󰩊",
+	Function = "󰡱",
+	Snippet = "",
+	Module = "",
+	Class = "󰝻",
+	Struct = "",
+    Constructor = "",
+    Field = "",
+    Enum = "",
+	EnumMember = "",
+	Interface = "",
+}
 
 ------------------------------
 --          Cmp             --
@@ -13,22 +29,26 @@ local mason_conform = require("mason-conform")
 cmp.setup({
 	window = {
 		completion = cmp.config.window.bordered(),
-		documentation = {
-			bordered = true,
-			max_width = 80,
-			max_height = 10,
-		},
-		view = {
-			entries = { name = "custom", selection_order = "near_cursor" },
-			docs = {
-				auto_open = false,
-			},
-		},
+		documentation = cmp.config.window.bordered(),
 		sources = cmp.config.sources({
 			{ name = "nvim_lsp" },
 		}, {
 			{ name = "buffer" },
 		}),
+	},
+	view = {
+		entries = { name = "custom", selection_order = "near_cursor" },
+		docs = {
+			auto_open = false,
+			bordered = true,
+		},
+	},
+	formatting = {
+		format = function(_, vim_item)
+			local icon = (cmp_icons[vim_item.kind] or "") .. " "
+			vim_item.kind = icon .. vim_item.kind
+			return vim_item
+		end,
 	},
 	mapping = cmp.mapping.preset.insert({
 		["<C-f>"] = cmp_action.luasnip_jump_forward(),
@@ -130,6 +150,7 @@ conform.setup({
 		lua = { "stylua" },
 		python = { "black" },
 		cpp = { "clang-format" },
+		javascript = { "biome" },
 	},
 })
 

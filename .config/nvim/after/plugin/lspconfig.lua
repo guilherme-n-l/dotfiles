@@ -7,17 +7,17 @@ local conform = require("conform")
 local mason_conform = require("mason-conform")
 local cmp_icons = {
 	Variable = "",
-    Keyword = "",
-    Text = "",
+	Keyword = "",
+	Text = "",
 	Property = "󰩊",
 	Function = "󰡱",
 	Snippet = "",
 	Module = "",
 	Class = "󰝻",
 	Struct = "",
-    Constructor = "",
-    Field = "",
-    Enum = "",
+	Constructor = "",
+	Field = "",
+	Enum = "",
 	EnumMember = "",
 	Interface = "",
 }
@@ -151,6 +151,7 @@ conform.setup({
 		python = { "black" },
 		cpp = { "clang-format" },
 		javascript = { "biome" },
+		go = { "gci", "goimports" },
 	},
 })
 

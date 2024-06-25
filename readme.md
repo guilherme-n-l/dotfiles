@@ -116,5 +116,6 @@ Below are some useful software I use in my daily driver:
 |keepassxc|storing passwords|
 |trash-cli|deleting files|
 |lazygit|version control|
+|foliate|books|
 |calibre|books|
 |timeshift|backups|

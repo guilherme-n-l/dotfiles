@@ -24,6 +24,7 @@ Props to [@kchibisov](https://github.com/kchibisov) for the theme
 - [brillo (AUR)](https://aur.archlinux.org/packages/brillo)
 - [flameshot (AUR)](https://archlinux.org/packages/extra/x86_64/flameshot/)
 - [betterlockscreen (AUR)](https://aur.archlinux.org/packages/betterlockscreen)
+- [xss-lock (AUR)](https://archlinux.org/packages/?name=xss-lock)
 - [fzf (AUR)](https://archlinux.org/packages/extra/x86_64/fzf/)
 - [fd (AUR)](https://archlinux.org/packages/extra/x86_64/fd/)
 
@@ -36,7 +37,7 @@ Props to [@kchibisov](https://github.com/kchibisov) for the theme
 - [ffmpegthumbnailer (AUR)](https://archlinux.org/packages/extra/x86_64/ffmpegthumbnailer/)
 - [ImageMagick (AUR)](https://archlinux.org/packages/extra/x86_64/imagemagick/)
 - [poppler (AUR)](https://archlinux.org/packages/extra/x86_64/poppler/)
-- [wkhtmltopdf (AUR)](https://aur.archlinux.org/packages/wkhtmltopdf/)
+- [wkhtmltopdf (Install binary)](https://wkhtmltopdf.org/)
 - [bat (Optional) (AUR)](https://archlinux.org/packages/extra/x86_64/bat/)
 - [chafa (Optional) (AUR)](https://archlinux.org/packages/extra/x86_64/chafa/)
 - [unzip (Optional) (AUR)](https://archlinux.org/packages/extra/x86_64/unzip/)
@@ -96,8 +97,8 @@ I use this to enable tapping and natural scrolling on my trackpad.
 
 ### Notes to self
 
-1. To theme zathura, you will need to append [gtk.css](/zathura/gtk.css) to `~/.config/gtk-3.0/gtk.css`
-2. To theme nsxiv, you will need to append [.Xresources](/nsxiv/.Xresources) to `~/.Xresources`
+1. To theme nsxiv, you will need to append [.Xresources](/.Xresources) to `~/.Xresources`. Then merge it with `xrdb -merge ~/.Xresources`
+2. To make betterlockscreen work properly, start the service, link [logind](/systemd/logind.conf) and install xss-lock
 3. To install audio properly use the following packages:
 - [sof-firmware (AUR)](https://archlinux.org/packages/extra/x86_64/sof-firmware/)
 - [pipewire (AUR)](https://archlinux.org/packages/extra/x86_64/pipewire/)
@@ -116,7 +117,4 @@ Below are some useful software I use in my daily driver:
 |trash-cli|deleting files|
 |lazygit|version control|
 |calibre|books|
-|nomacs|images|
 |timeshift|backups|
-|fzf|fuzzy finder|
-

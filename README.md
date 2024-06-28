@@ -28,25 +28,17 @@ Props to [@kchibisov](https://github.com/kchibisov) for the theme
 - [fzf (AUR)](https://archlinux.org/packages/extra/x86_64/fzf/)
 - [fd (AUR)](https://archlinux.org/packages/extra/x86_64/fd/)
 
-## lf
+## yazi
 
-- [lf (AUR)](https://archlinux.org/packages/extra/x86_64/lf/)
-- [lfimg](https://github.com/thimc/lfimg)
-- [gnome-epub-thumbnailer](https://archlinux.org/packages/extra/x86_64/gnome-epub-thumbnailer/)
+- [yazi (AUR)](https://archlinux.org/packages/extra/x86_64/yazi/)
 - [ueberzugpp (AUR)](https://aur.archlinux.org/packages/ueberzugpp)
 - [ffmpegthumbnailer (AUR)](https://archlinux.org/packages/extra/x86_64/ffmpegthumbnailer/)
-- [ImageMagick (AUR)](https://archlinux.org/packages/extra/x86_64/imagemagick/)
 - [poppler (AUR)](https://archlinux.org/packages/extra/x86_64/poppler/)
-- [wkhtmltopdf (Install binary)](https://wkhtmltopdf.org/)
-- [bat (Optional) (AUR)](https://archlinux.org/packages/extra/x86_64/bat/)
-- [chafa (Optional) (AUR)](https://archlinux.org/packages/extra/x86_64/chafa/)
-- [unzip (Optional) (AUR)](https://archlinux.org/packages/extra/x86_64/unzip/)
-- [7z (Optional) (AUR)](https://archlinux.org/packages/extra/x86_64/p7zip/)
 - [unrar (Optional) (AUR)](https://archlinux.org/packages/extra/x86_64/unrar/)
-- [catdoc (Optional) (AUR)](https://archlinux.org/packages/extra/x86_64/catdoc/)
-- [odt2txt (Optional) (AUR)](https://archlinux.org/packages/extra/x86_64/odt2txt/)
-- [gnumeric (Optional) (AUR)](https://archlinux.org/packages/extra/x86_64/gnumeric/)
-- [comix (Optional) (AUR)](https://aur.archlinux.org/packages/comix)
+- [fzf (AUR)](https://archlinux.org/packages/extra/x86_64/fzf/)
+- [fd (AUR)](https://archlinux.org/packages/extra/x86_64/fd/)
+- [ripgrep (AUR)](https://archlinux.org/packages/extra/x86_64/ripgrep/)
+- [jq (AUR)](https://archlinux.org/packages/extra/x86_64/jq/)
 
 ## mpv
 

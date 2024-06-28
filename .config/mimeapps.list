@@ -21,6 +21,7 @@ image/png=nsxiv.desktop;
 image/vnd.djvu=org.pwmt.zathura.desktop
 application/pdf=org.pwmt.zathura.desktop
 application/epub+zip=com.github.johnfactotum.Foliate.desktop;
+x-scheme-handler/eclipse+command x-scheme-handler/eclipse+mpc=_usr_lib_eclipse_.desktop
 
 [Added Associations]
 application/epub+zip=org.pwmt.zathura.desktop;

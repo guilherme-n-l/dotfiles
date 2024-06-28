@@ -1,0 +1,20 @@
+# Cut files
+[[manager.prepend_keymap]]
+on   = [ 'd' ]
+run  = 'yank --cut'
+desc = 'Cut the selected files'
+[[manager.prepend_keymap]]
+on   = [ 'D' ]
+run  = 'unyank'
+desc = 'Cancel the yank status of files'
+
+# Removing files
+[[manager.prepend_keymap]]
+on   = [ 'x' ]
+run  = 'remove'
+desc = 'Move the files to the trash'
+[[manager.prepend_keymap]]
+on   = [ 'X' ]
+run  = 'remove --permanently'
+desc = 'Permanently delete the files'
+

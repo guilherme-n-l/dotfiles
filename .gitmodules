@@ -1,0 +1,3 @@
+[submodule ".config/yazi/flavors/tokyo-night.yazi"]
+	path = .config/yazi/flavors/tokyo-night.yazi
+	url = https://github.com/BennyOe/tokyo-night.yazi.git

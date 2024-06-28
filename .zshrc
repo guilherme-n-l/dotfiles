@@ -14,11 +14,18 @@ plugins=(git)
 
 # Sourcing
 source $ZSH/oh-my-zsh.sh
-source $HOME/.config/lf/icons.sh
+# source $HOME/.config/lf/icons.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Aliases 
-alias lf='lfrun'
+function yz() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+}
 alias sd='shutdown now'
 alias rb='shutdown now --reboot'
 alias fzfd='fd --hidden --type d | fzf'

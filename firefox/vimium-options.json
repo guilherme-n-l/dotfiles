@@ -1,0 +1,16 @@
+{
+  "linkHintCharacters": "asdfghjkl",
+  "scrollStepSize": 120,
+  "settingsVersion": "2.1.2",
+  "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n  padding: 2px 3px;\n  outline: none;\n  box-shadow: none;\n  background-color: #c0a36e;\n  border: 0;\n  border-radius: 2px;\n  background-image: none;\n}\n\ndiv > .vimiumHintMarker span {\n  font-size: 16px;\n  font-weight: bold;\n  text-shadow: none;\n  color: #16161d;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n  color: #dcbc2a;\n}",
+  "exclusionRules": [
+    {
+      "passKeys": "",
+      "pattern": "https?://mail.google.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://excalidraw.com/*"
+    }
+  ]
+}

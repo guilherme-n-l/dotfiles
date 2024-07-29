@@ -1,0 +1,43 @@
+set selection-clipboard         clipboard
+
+set font                        "FiraCode Nerd Font 16"
+map h                           toggle_statusbar
+map p                           toggle_page_mode 
+
+set notification-error-bg       "rgba(31, 31, 40, 0.9)"
+set notification-error-fg       "#FF5D62"
+set notification-warning-bg     "rgba(31, 31, 40, 0.9)"
+set notification-warning-fg     "#FFA066"
+set notification-bg             "rgba(31, 31, 40, 0.9)"
+set notification-fg             "#DCD7BA"
+
+set completion-bg               "rgba(31, 31, 40, 0.9)"
+set completion-fg               "#C8C093"
+set completion-group-bg         "#2A2A37"
+set completion-group-fg         "#C8C093"
+set completion-highlight-bg     "#957FB8"
+set completion-highlight-fg     "rgba(31, 31, 40, 0.9)"
+
+set index-bg                    "rgba(31, 31, 40, 0.9)"
+set index-fg                    "#957FB8"
+set index-active-bg             "rgba(149, 127, 184, 0.9)"
+set index-active-fg             "rgba(31, 31, 40, 0.9)"
+
+set inputbar-bg                 "rgba(31, 31, 40, 0.9)"
+set inputbar-fg                 "#C8C093"
+
+set statusbar-bg                "rgba(31, 31, 40, 0.9)"
+set statusbar-fg                "#C8C093"
+
+set highlight-color             "rgba(255, 160, 102, 0.5)"
+set highlight-active-color      "rgba(255, 93, 98, 0.5)"
+
+set default-bg                  "rgba(31, 31, 40, 0.9)"
+set default-fg                  "#C8C093"
+set render-loading              "true"
+set render-loading-bg           "rgba(31, 31, 40, 0.9)"
+set render-loading-fg           "#C8C093"
+
+set recolor-lightcolor          "rgba(31, 31, 40, 0.9)"
+set recolor-darkcolor           "#C8C093"
+set recolor                     "false"

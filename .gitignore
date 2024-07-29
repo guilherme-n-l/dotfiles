@@ -1,0 +1,5 @@
+**/tmux/plugins/*
+**/lf/cleaner
+**/lf/preview
+**/mpv/scripts/*
+.config/nvim/spell

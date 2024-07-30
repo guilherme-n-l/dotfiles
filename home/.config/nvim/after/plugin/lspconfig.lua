@@ -28,8 +28,8 @@ local cmp_icons = {
 
 cmp.setup({
 	window = {
-		completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered(),
+		completion = cmp.config.window,
+		documentation = cmp.config.window,
 		sources = cmp.config.sources({
 			{ name = "nvim_lsp" },
 		}, {
@@ -40,7 +40,6 @@ cmp.setup({
 		entries = { name = "custom", selection_order = "near_cursor" },
 		docs = {
 			auto_open = false,
-			bordered = true,
 		},
 	},
 	formatting = {

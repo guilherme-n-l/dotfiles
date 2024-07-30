@@ -1,5 +1,4 @@
-import = ["~/.config/alacritty/themes/kanagawa-dragon.toml"]
-
+import = ["~/.config/alacritty/kanagawa-dragon.toml"]
 shell = { program = "/bin/zsh", args = ["-l", "-c", "tmux attach || tmux"] }
 
 [window]

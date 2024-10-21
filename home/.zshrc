@@ -51,6 +51,7 @@ alias gwl='git worktree list'
 alias mntserver='echo -n "Enter server IP: "; read ip; echo -n "Enter remote mount bind (/foo/bar): "; read source_bind; echo -n "Enter local mountpoint (/foo/bar): "; read target_bind; sshfs "$USER"@"$ip":"$source_bind" "$target_bind"'
 alias tup='sudo systemctl start tailscaled; sudo tailscale up'
 alias tdown='sudo systemctl stop tailscaled; sudo tailscale down'
+alias bctl='bluetoothctl'
 
 # Keybinds
 bindkey '^[[1;3C' forward-word

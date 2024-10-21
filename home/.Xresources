@@ -2,3 +2,6 @@
 Nsxiv.window.background: #16161d
 Nsxiv.*.foreground: #dcd7ba
 Nsxiv.bar.font: FiraCode\ Nerd\ Font
+
+! Cursor
+Xcursor.size: 18

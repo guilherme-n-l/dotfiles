@@ -4,6 +4,7 @@ local o = vim.opt
 
 o.nu = true
 o.rnu = true
+o.wrap = false
 
 o.guicursor = ""
 

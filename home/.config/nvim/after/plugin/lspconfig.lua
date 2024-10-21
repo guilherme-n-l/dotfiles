@@ -130,7 +130,7 @@ require("mason-lspconfig").setup({
 	ensure_installed = {
 		"lua_ls",
 		"marksman",
-		"gopls",
+		-- "gopls",
 	},
 	handlers = {
 		function(server_name)
@@ -147,11 +147,11 @@ conform.setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		python = { "black" },
-		cpp = { "clang-format" },
-		java = { "clang-format" },
-		javascript = { "biome" },
-		go = { "gci", "goimports" },
-		yaml = { "yamlfmt" },
+		-- cpp = { "clang-format" },
+		-- java = { "clang-format" },
+		-- javascript = { "biome" },
+		-- go = { "gci", "goimports" },
+		-- yaml = { "yamlfmt" },
 	},
 })
 

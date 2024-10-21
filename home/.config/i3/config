@@ -1,0 +1,135 @@
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+
+#####################
+#      BEHAVIOR     #
+#####################
+
+focus_follows_mouse no
+
+#####################
+#      THEMING      #
+#####################
+
+font pango:FreeSans 12
+
+set $color-bg                   #2a2a37
+set $color-border-bg            #c0a36e
+set $color-inactive-border-bg   #736142
+set $color-urgent-bg            #ece3d3
+set $color-text-fg              #dcd7ba
+set $color-text-fg-alt          #363646
+set $color-inactive-text-fg     #f1efe3
+set $color-indicator-bg         #c0a36e
+
+
+client.focused          $color-border-bg            $color-border-bg            $color-text-fg-alt          $color-indicator-bg     $color-border-bg
+client.unfocused        $color-inactive-border-bg   $color-inactive-border-bg   $color-inactive-text-fg     $color-indicator-bg     $color-inactive-border-bg
+client.focused_inactive $color-inactive-border-bg   $color-inactive-border-bg   $color-inactive-text-fg     $color-indicator-bg     $color-inactive-border-bg
+client.urgent           $urgent-bg-color            $urgent-bg-color            $color-text-fg              $color-indicator-bg     $urgent-bg-color
+
+
+gaps inner 12
+gaps outer 0
+
+for_window [class="^.*"] border pixel 2
+
+bar {
+    status_command 	i3status
+	position	    top
+    output          primary
+	font            pango:FiraCode Nerd Font Regular 12
+    colors {
+        background          $color-bg
+        separator           $color-bg
+        focused_workspace   $color-border-bg    $color-bg   $color-inactive-text-fg
+        inactive_workspace  $color-bg           $color-bg   $color-inactive-text-fg
+    }
+}
+
+#####################
+#     AUTOSTART     #
+#####################
+
+exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l
+exec --no-startup-id nm-applet
+exec --no-startup-id picom
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id keepassxc
+set $refresh_i3status killall -SIGUSR1 i3status
+
+#####################
+#      KEYBINDS     #
+#####################
+
+set $mod Mod4
+tiling_drag modifier titlebar
+floating_modifier $mod
+
+bindsym $mod+q  exec --no-startup-id betterlockscreen -l
+
+bindsym XF86AudioRaiseVolume    exec --no-startup-id bash ~/.config/i3/raise_volume.sh
+bindsym XF86AudioLowerVolume 	exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute 		    exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute 	    exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+bindsym XF86MonBrightnessUp     exec --no-startup-id brillo -qA 10
+bindsym XF86MonBrightnessDown   exec --no-startup-id brillo -qU 10
+
+bindsym ctrl+Mod1+t         exec --no-startup-id i3-sensible-terminal -e bash ~/.config/i3/spawn_tmux.sh
+bindsym ctrl+Mod1+Shift+t   exec --no-startup-id i3-sensible-terminal -e tmux new
+
+bindsym $mod+w 		kill
+bindsym $mod+space	exec --no-startup-id dmenu_run -fn 'FiraCode Nerd Font:regular:pixelsize=20' -nb '#1e1f28' -sb '#c0a36e' -nf '#dcd7ba' -sf '#16161d'
+
+bindsym $mod+k focus up
+bindsym $mod+j focus down 
+bindsym $mod+h focus left
+bindsym $mod+l focus right
+bindsym $mod+c focus mode_toggle
+
+bindsym $mod+Shift+h	move left
+bindsym $mod+Shift+j	move down
+bindsym $mod+Shift+k	move up
+bindsym $mod+Shift+l	move right
+
+bindsym $mod+a split h
+bindsym $mod+z split v
+
+bindsym $mod+f          fullscreen	toggle
+bindsym $mod+m          layout		stacking
+bindsym $mod+Shift+m    layout		tabbed
+bindsym $mod+t          layout		toggle      split
+bindsym $mod+Shift+t    sticky      toggle
+bindsym $mod+s          floating	toggle
+
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+
+bindsym $mod+Escape 	reload
+bindsym $mod+Shift+r 	restart
+bindsym $mod+Shift+q 	exec 	"i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# RESIZING
+bindsym $mod+r mode "resize"
+mode "resize" {
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+

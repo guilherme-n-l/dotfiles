@@ -1,0 +1,39 @@
+general {
+    output_format = "i3bar"
+    colors = true
+    interval = 5
+}
+
+order += "battery 0"
+order += "volume master"
+order += "tztime sp"
+order += "tztime date"
+
+battery 0 {
+        format = "%status %percentage"
+        format_down = "No battery"
+        status_chr = "⚡"
+        status_bat = "󱟤"
+        status_unk = "?"
+        status_full = "󱈏"
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 10
+}
+
+tztime sp {
+        format = "%I:%M %p "
+        timezone = "America/Sao_Paulo"
+}
+
+tztime date {
+        format = "%b %d, %Y "
+        timezone = "America/Sao_Paulo"
+}
+
+volume master {
+        format = " 󰎇 %volume "
+        format_muted = "󰎇 muted"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}

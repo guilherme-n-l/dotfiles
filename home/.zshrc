@@ -2,6 +2,7 @@
 export _JAVA_AWT_WM_NONREPARENTING=1
 export ZSH="$HOME/.oh-my-zsh"
 export PATH=$PATH:$HOME/.go/bin
+export EDITOR=nvim
 
 # Options
 HYPHEN_INSENSITIVE='true'

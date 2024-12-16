@@ -79,6 +79,10 @@ Props to [@kchibisov](https://github.com/kchibisov) for the theme
 
 I use this to enable tapping and natural scrolling on my trackpad.
 
+## keyboard
+
+- [xmodmap (AUR)](https://archlinux.org/packages/extra/x86_64/xorg-xmodmap/)
+
 ## Zathura
 
 - [zathura (AUR)](https://archlinux.org/packages/extra/x86_64/zathura/)

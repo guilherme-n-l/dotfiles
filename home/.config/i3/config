@@ -38,7 +38,7 @@ for_window [class="^.*"] border pixel 2
 
 bar {
     status_command 	i3status
-	position	    top
+	position	    bottom
     output          primary
 	font            pango:FiraCode Nerd Font Regular 12
     colors {

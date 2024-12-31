@@ -13,84 +13,132 @@ local set = vim.keymap.set
 
 g.mapleader = " "
 
-------------------------------
---        Navegation        --
-------------------------------
+local mappings = {
+	------------------------------
+	--        Navegation        --
+	------------------------------
 
-set("n", "<leader>ww", vim.cmd.bd)
+	{ "n", "<leader>ww", vim.cmd.bd },
 
--- Telescope
-set("n", "<leader>pf", function()
-	builtin.find_files({ hidden = true, no_ignore = true })
-end)
-set("n", "<leader>pg", builtin.live_grep, {})
-set("n", "<leader>pv", vim.cmd.Ex)
+	-- Telescope
+	{
+		"n",
+		"<leader>pf",
+		function()
+			builtin.find_files({ hidden = true, no_ignore = true })
+		end,
+	},
+	{ "n", "<leader>pg", builtin.live_grep, {} },
+	{ "n", "<leader>pv", vim.cmd.Ex },
 
--- Harpoon
-set("n", "<leader>hm", harpoon.add_file)
-set("n", "<leader>hn", harpoonui.nav_next)
-set("n", "<leader>hp", harpoonui.nav_prev)
-set("n", "<leader>hv", harpoonui.toggle_quick_menu)
-set("n", "<leader>1", function()
-	harpoonui.nav_file(1)
-end)
-set("n", "<leader>2", function()
-	harpoonui.nav_file(2)
-end)
-set("n", "<leader>3", function()
-	harpoonui.nav_file(3)
-end)
-set("n", "<leader>4", function()
-	harpoonui.nav_file(4)
-end)
+	-- Harpoon
+	{ "n", "<leader>hm", harpoon.add_file },
+	{ "n", "<leader>hn", harpoonui.nav_next },
+	{ "n", "<leader>hp", harpoonui.nav_prev },
+	{ "n", "<leader>hv", harpoonui.toggle_quick_menu },
 
--- Move selected up and down
-set("v", "J", ":m '>+1<CR>gv=gv")
-set("v", "K", ":m '<-2<CR>gv=gv")
+	-- Move selected up and down
+	{ "v", "J", ":m '>+1<CR>gv=gv" },
+	{ "v", "K", ":m '<-2<CR>gv=gv" },
 
--- Join to line above
-set("n", "J", "mzJ`z")
+	-- Join to line above
+	{ "n", "J", "mzJ`z" },
 
-set("n", "<C-d>", "<C-d>zz")
-set("n", "<C-u>", "<C-u>zz")
+	{ "n", "<C-d>", "<C-d>zz" },
+	{ "n", "<C-u>", "<C-u>zz" },
 
--- Search next blazzingly fast
-set("n", "n", "nzzzv")
-set("n", "N", "Nzzzv")
+	-- Search next blazzingly fast
+	{ "n", "n", "nzzzv" },
+	{ "n", "N", "Nzzzv" },
 
-------------------------------
---           LSP            --
-------------------------------
+	------------------------------
+	--           LSP            --
+	------------------------------
 
--- Trouble
-set("n", "<leader>xx", function()
-	utils.toggle_virtual_text()
-end)
-set("n", "<leader>xf", function()
-	vim.diagnostic.open_float()
-end)
-set("n", "gr", function()
-    trouble.toggle("lsp_references")
-end)
--- Aerial
-set("n", "<leader>gv", vim.cmd.AerialToggle)
--- Conform
-set("n", "<leader>gf", function()
-    conform.format()
-end)
-set("n", "<leader>xp", vim.diagnostic.goto_prev)
-set("n", "<leader>xn", vim.diagnostic.goto_next)
--- UndoTree
-set("n", "<leader>xu", vim.cmd.UndotreeToggle)
+	-- Trouble
+	{
+		"n",
+		"<leader>xx",
+		function()
+			utils.toggle_virtual_text()
+		end,
+	},
+	{
+		"n",
+		"<leader>xf",
+		function()
+			vim.diagnostic.open_float()
+		end,
+	},
+	{
+		"n",
+		"<leader>xv",
+		function()
+			trouble.toggle("diagnostics")
+		end,
+	},
+	{
+		"n",
+		"gr",
+		function()
+			trouble.toggle("lsp_references")
+		end,
+	},
+	-- Aerial
+	{ "n", "<leader>gv", vim.cmd.AerialToggle },
+	-- Conform
+	{
+		"n",
+		"<leader>gf",
+		function()
+			conform.format()
+		end,
+	},
+	{ "n", "<leader>xp", vim.diagnostic.goto_prev },
+	{ "n", "<leader>xn", vim.diagnostic.goto_next },
+	-- UndoTree
+	{ "n", "<leader>xu", vim.cmd.UndotreeToggle },
 
-------------------------------
---          Git             --
-------------------------------
+	------------------------------
+	--          Git             --
+	------------------------------
 
--- Git_worktree
-set("n", "<leader>wv", function()
-	teleworktree.git_worktrees()
-end)
-set("n", "<leader>wa", function()
-	teleworktree.create_git_worktree()
-end)
+	-- Git_worktree
+	{
+		"n",
+		"<leader>wv",
+		function()
+			teleworktree.git_worktrees()
+		end,
+	},
+	{
+		"n",
+		"<leader>wa",
+		function()
+			teleworktree.create_git_worktree()
+		end,
+	},
+}
+
+for i = 1, 9 do
+	table.insert(mappings, {
+		"n",
+		"<leader>" .. i,
+		function()
+			harpoonui.nav_file(i)
+		end,
+	})
+end
+
+for _, val in pairs(mappings) do
+	local mode = val[1]
+	local keybind = val[2]
+	local func = val[3]
+	local opts = val[4] or nil
+
+	if opts then
+		set(mode, keybind, func, opts)
+	else
+		set(mode, keybind, func)
+	end
+end

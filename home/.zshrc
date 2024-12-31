@@ -50,6 +50,7 @@ alias gwa='git worktree add'
 alias gwr='git worktree remove'
 alias gwl='git worktree list'
 alias bctl='bluetoothctl'
+alias showkeys='nohup nsxiv ~/Pictures/layout.png -z 150 > /dev/null 2>&1 &'
 
 # Keybinds
 bindkey '^[[1;3C' forward-word

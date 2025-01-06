@@ -1,30 +1,23 @@
-# Environment variables
-export _JAVA_AWT_WM_NONREPARENTING=1
-export ZSH="$HOME/.oh-my-zsh"
-export PATH=$PATH:$HOME/.go/bin
-export EDITOR=nvim
-
-# Options
+#################
+#   Behavior    #
+#################
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
 HYPHEN_INSENSITIVE='true'
+setopt HIST_IGNORE_DUPS
+setopt SHARE_HISTORY
 
-# Plugins
-plugins=(git)
+#################
+# Customization #
+#################
+autoload -U colors && colors
 
-# Sourcing
-source $ZSH/oh-my-zsh.sh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+PS1="%{$fg[yellow]%}%~%{$reset_color%} %{$fg[cyan]%}%% %{$reset_color%}"
 
-# Theme
-ZSH_THEME_GIT_PROMPT_PREFIX="%F{yellow} "
-ZSH_THEME_GIT_PROMPT_SUFFIX="%f"
-ZSH_THEME_GIT_PROMPT_DIRTY=" %F{red}*%f %{$reset_color%}|"
-ZSH_THEME_GIT_PROMPT_CLEAN=" %{$reset_color%}|"
-
-PROMPT="%F{blue}%1c%F{blue} %{$reset_color%}%%%f "
-RPROMPT=' $(git_prompt_info) %F{blue}%D{%L:%M} %D{%p}%f'
-
-
-# Aliases 
+#################
+#   Bindings    #
+#################
 function yz() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
     yazi "$@" --cwd-file="$tmp"
@@ -52,6 +45,7 @@ alias gwl='git worktree list'
 alias bctl='bluetoothctl'
 alias showkeys='nohup nsxiv ~/Pictures/layout.png -z 150 > /dev/null 2>&1 &'
 
-# Keybinds
 bindkey '^[[1;3C' forward-word
 bindkey '^[[1;3D' backward-word
+
+export EDITOR=nvim

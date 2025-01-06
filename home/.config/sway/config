@@ -1,7 +1,22 @@
+#####################
+#     VARIABLES     #
+#####################
+set $mod Mod4
+
+set $left h
+set $down j
+set $up k
+set $right l
+
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
+
+set $opacity 0.8
+
+set $term alacritty
+set $menu dmenu_run
 
 #####################
 #      BEHAVIOR     #
@@ -9,9 +24,24 @@ set $ws4 "4"
 
 focus_follows_mouse no
 
+input type:keyboard {
+    xkb_file ~/.config/sway/keymap.xkb
+}
+
+input "10182:3394:DELL0B24:00_27C6:0D42_Touchpad" {
+    dwt enabled
+        tap disabled
+        natural_scroll enabled
+        middle_emulation enabled
+}
+
+floating_modifier $mod normal
+
 #####################
 #      THEMING      #
 #####################
+
+output * bg ~/Pictures/wallpaper.png fill
 
 font pango:FreeSans 12
 
@@ -28,51 +58,40 @@ set $color-indicator-bg         #c0a36e
 client.focused          $color-border-bg            $color-border-bg            $color-text-fg-alt          $color-indicator-bg     $color-border-bg
 client.unfocused        $color-inactive-border-bg   $color-inactive-border-bg   $color-inactive-text-fg     $color-indicator-bg     $color-inactive-border-bg
 client.focused_inactive $color-inactive-border-bg   $color-inactive-border-bg   $color-inactive-text-fg     $color-indicator-bg     $color-inactive-border-bg
-client.urgent           $urgent-bg-color            $urgent-bg-color            $color-text-fg              $color-indicator-bg     $urgent-bg-color
+#client.urgent           $urgent-bg-color            $urgent-bg-color            $color-text-fg              $color-indicator-bg     $urgent-bg-color
 
 
 gaps inner 12
-gaps outer 0
 
-for_window [class="^.*"] border pixel 2
 
-bar {
-    status_command 	i3status
-	position	    bottom
-    output          primary
-	font            pango:FiraCode Nerd Font Regular 12
-    colors {
-        background          $color-bg
-        separator           $color-bg
-        focused_workspace   $color-border-bg    $color-bg   $color-inactive-text-fg
-        inactive_workspace  $color-bg           $color-bg   $color-inactive-text-fg
-    }
+for_window {
+    [class="^.*"] border pixel 2
+    [app_id="Alacritty"] opacity $opacity
+    [app_id="org.keepassxc.KeePassXC"] floating enable
+    [class="KeePassXC"] floating enable
 }
 
-#####################
-#     AUTOSTART     #
-#####################
+bar {
+    status_command  exec ~/.config/sway/bar.sh
+        position	    bottom
+        font            pango:FiraCode Nerd Font Regular 12
 
-exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l
-exec --no-startup-id nm-applet
-exec --no-startup-id picom
-exec --no-startup-id xmodmap ~/.Xmodmap
-exec --no-startup-id nitrogen --restore
-exec --no-startup-id keepassxc
-set $refresh_i3status killall -SIGUSR1 i3status
+        colors {
+            background          $color-bg
+                separator           $color-bg
+                focused_workspace   $color-border-bg    $color-bg   $color-inactive-text-fg
+                inactive_workspace  $color-bg           $color-bg   $color-inactive-text-fg
+        }
+    gaps 5 10
+}
 
 #####################
 #      KEYBINDS     #
 #####################
 
-set $mod Mod4
-tiling_drag modifier titlebar
-floating_modifier $mod
-
 bindsym $mod+q  exec --no-startup-id betterlockscreen -l
 
-bindsym XF86AudioRaiseVolume    exec --no-startup-id bash ~/.config/i3/raise_volume.sh
+bindsym XF86AudioRaiseVolume 	exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume 	exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute 		    exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute 	    exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
@@ -80,8 +99,8 @@ bindsym XF86AudioMicMute 	    exec --no-startup-id pactl set-source-mute @DEFAUL
 bindsym XF86MonBrightnessUp     exec --no-startup-id brillo -qA 10
 bindsym XF86MonBrightnessDown   exec --no-startup-id brillo -qU 10
 
-bindsym ctrl+Mod1+t         exec --no-startup-id i3-sensible-terminal -e bash ~/.config/i3/spawn_tmux.sh
-bindsym ctrl+Mod1+Shift+t   exec --no-startup-id i3-sensible-terminal -e tmux new
+bindsym ctrl+Mod1+t         exec $term -e bash -c "tmux attach || tmux"
+bindsym ctrl+Mod1+Shift+t   exec $term -e bash -c "tmux new"
 
 bindsym $mod+w 		kill
 bindsym $mod+space	exec --no-startup-id dmenu_run -fn 'FiraCode Nerd Font:regular:pixelsize=20' -nb '#1e1f28' -sb '#c0a36e' -nf '#dcd7ba' -sf '#16161d'
@@ -104,7 +123,7 @@ bindsym $mod+f          fullscreen	toggle
 bindsym $mod+m          layout		stacking
 bindsym $mod+Shift+m    layout		tabbed
 bindsym $mod+t          layout		toggle      split
-bindsym $mod+Shift+t    sticky      toggle
+bindsym $mod+Shift+t    sticky          toggle
 bindsym $mod+s          floating	toggle
 
 bindsym $mod+1 workspace number $ws1
@@ -118,16 +137,16 @@ bindsym $mod+Shift+3 move container to workspace number $ws3
 bindsym $mod+Shift+4 move container to workspace number $ws4
 
 bindsym $mod+Escape 	reload
-bindsym $mod+Shift+r 	restart
-bindsym $mod+Shift+q 	exec 	"i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+r 	exec swaymsg reload
+bindsym $mod+Shift+q 	exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
-bindsym $mod+Shift+s 	exec 	"flameshot gui -p ~/Pictures/screenshots"
-bindsym $mod+Shift+z 	exec 	"flameshot gui --clipboard"
+bindsym $mod+Shift+s 	exec 	'grim -g "$(slurp -d)" ~/Pictures/$(date +%Y-%m-%d_%H-%M-%S).png'
+bindsym $mod+Shift+z 	exec 	'grim -g "$(slurp -d)" - | wl-copy'
 
 # RESIZING
 bindsym $mod+r mode "resize"
 mode "resize" {
-        bindsym h resize shrink width 10 px or 10 ppt
+    bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
@@ -137,3 +156,10 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
+#####################
+#      STARTUP      #
+#####################
+exec --no-startup-id nm-applet
+exec --no-startup-id keepassxc
+
+include /etc/sway/config.d/*
